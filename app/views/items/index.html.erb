@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+
+<div class='jumbotron3'>
+</div>
+<table>
+
+
+  <tbody>
+    <% @items.each do |item| %>
+      <td>
+        <tr><h2>Title :<%= item.title %></h2></tr>
+    <td><p><%= item.text %></p></td>
+        <tr><center> <%= image_tag item.image_url(:thumb).to_s %></center></tr>
+
+        <td><%= link_to 'Show', items_path ,class: "btn btn-default"%>
+       <%= link_to 'Edit', edit_item_path(item),class: "btn btn-default" %>
+        <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-default" %></td>
+      </td>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Item', new_item_path %>
